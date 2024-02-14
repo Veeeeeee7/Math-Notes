@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{qtree}
+
+\title{Multivariable Calculus Unit 3 Study Guide}
+\author{}
+\date{}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\section{Continuity}
+\[ \lim_{(x,y) \to (0,0)} \frac{{x^2}y}{{x^4}+{y^2}} \]
+Test the following:
+\[ \lim_{along \ x-axis} \frac{{x^2}*0}{{x^4}+{0^2}}  = \lim_{x \to 0} \frac{0}{x^4} = 0 \]
+\[ \lim_{along \ y-axis} \frac{{0^2}*y}{{0^4}+{y^2}} = \lim_{y \to 0} \frac{0}{y^2} = 0 \]
+\[ \lim_{along \ y=x} \frac{{x^2}*x}{{x^4}+{x^2}} = \lim_{x \to 0} \frac{x^3}{{x^4}+{x^2}} = 0 \]
+\[ \lim_{along \ y=x^2} \frac{{x^2}*{x^2}}{{x^4}+{{(x^2)}^2}} = \lim_{x \to 0} \frac{x^4}{2x^4} = \frac{1}{2}\]
+
+\section{Total Differential and Linear Approximation}
+\[df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy \]
+\[\Delta f \approx \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y \]
+Let $f(x,y)=\sqrt{{x^2}+{y^2}}$, use the total differential to approximate $f(1.02, 1.99)$.
+\[\frac{\partial f}{\partial x} = \frac{1}{2\sqrt{{x^2}+{y^2}}}\frac{\partial}{\partial x} ({x^2}+{y^2}) = \frac{x}{\sqrt{{x^2}+{y^2}}}\]
+\[\frac{\partial f}{\partial y} = \frac{1}{2\sqrt{{x^2}+{y^2}}}\frac{\partial}{\partial y} ({x^2}+{y^2}) = \frac{y}{\sqrt{{x^2}+{y^2}}}\]
+\[f(1,2) = \sqrt{5} \quad \Delta x = 0.02 \quad \Delta y = -0.01\]
+\[\Delta f = \frac{1}{\sqrt{{1^2}+{2^2}}}(0.02) + \frac{2}{\sqrt{{1^2}+{2^2}}}(-0.01) = 0\]
+\[f(1.02,1.99) = f(1,2) + \Delta f = \sqrt{5}\]
+
+\section{Chain Rule}
+\[f(x(t), y(t))\]
+\Tree[.f [.x [.t ] ] [.y [.t ] ] ]
+\[\frac{df}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}\]
+Let ${z^2}x-zy^2+2=0$ where $x=rcos\theta$ and $y=rsin\theta$. Find $\frac{\partial z}{\partial r}$ when $r=2$ and $\theta=\frac{\pi}{2}$.
+
+\Tree[.z [.x r $\theta$ ] [.y r $\theta$ ] ]
+\[\frac{\partial z}{\partial r} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial r} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial r}\]
+Let $f(x,y,z)={z^2}x-zy^2+2$
+\[\frac{\partial z}{\partial x} = -\frac{\frac{\partial f}{\partial x}}{\frac{\partial f}{\partial z}} = -\frac{z^2}{2xz-y^2}\]
+\[\frac{\partial z}{\partial y} = -\frac{\frac{\partial f}{\partial y}}{\frac{\partial f}{\partial z}} = -\frac{-2yz}{2xz-y^2}\]
+\[\frac{\partial x}{\partial r} = cos\theta\]
+\[\frac{\partial y}{\partial r} = sin\theta\]
+\[\frac{\partial z}{\partial r} = \frac{-z^2}{2xz-y^2}cos\theta + \frac{2yz}{2xz-y^2}sin\theta\]
+\\
+Calculate $x,y,z$ when $r=2$ and $\theta = \frac{\pi}{2}$
+\[x=2cos\frac{\pi}{2} = 0\]
+\[y=2sin\frac{\pi}{2} = 2\]
+\[{z^2}*0-z*{2^2}+2=0, z=\frac{1}{2}\]
+
+\[\frac{\partial z}{\partial r} = \frac{-(\frac{1}{2})^2}{(2)(0)(\frac{1}{2})-(2)^2}cos(\frac{\pi}{2}) + \frac{(2)(2)(\frac{1}{2})}{(2)(0)(\frac{1}{2})-(2)^2}sin(\frac{\pi}{2}) = -\frac{1}{2}\]
+
+\section{Directional Derivative}
+The directional derivative in the given direction $\Vec{u}$ at point $P:(x_0, y_0, z_0)$
+\[D_{\Vec{u}}f = \nabla f \cdot \Vec{u}\]
+\[\nabla f(x_0,y_0,z_0) = \langle\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\rangle\]
+ex. Find $D_{\Vec{u}}f$ of $f(x,y)=x^2+2y^2$ in the direction $\langle 3, 4 \rangle$ at $(1, 2)$
+\[\nabla f = \langle 2x, 4y \rangle \to \langle 2, 8 \rangle \]
+\[\Vec{u} = \langle \frac{3}{5}, \frac{4}{5} \rangle \]
+\[D_{\Vec{u}}f = \langle 2, 8 \rangle \cdot \langle \frac{3}{5}, \frac{4}{5} \rangle = \frac{38}{5} \]
+The unit vector $\Vec{u}$ in the direction of fastest increase or maximum $D_{\Vec{u}}f$ given a point $P:(x_0, y_0, z_0)$
+\[\Vec{u} = \nabla f(x_0,y_0,z_0)\]
+ex. Find a unit vector in the direction in which $f(x,y)=(x^2+y^2)^\frac{3}{2}$ increases most rapidly at the point $(5, -13)$
+\[\Vec{u} = \langle \frac{3}{2}(x^2+y^2)^\frac{1}{2}(2x), \frac{3}{2}(x^2+y^2)^\frac{1}{2}(2y) \rangle \to \langle 15\sqrt{194}, -39\sqrt{194}\rangle \]
+\[\Vec{u} = \langle \frac{15\sqrt{194}}{582}, \frac{-39\sqrt{194}}{582} \rangle = \langle \frac{5\sqrt{194}}{194}, \frac{-13\sqrt{194}}{194} \rangle \]
+
+\section{Tangent Planes and Normal Vectors}
+Normal vector $\Vec{n}$ to the tangent plane at point $P: (x_0, y_0, z_0)$ 
+\[\Vec{n} = \nabla f(x_0, y_0, z_0)\]
+Tangent plane equation at point $P$
+\[T = \nabla f(x_0, y_0, z_0) * \langle x-x_0, y-y_0, z-z_0 \rangle\]
+Line normal to the surface at point $P$
+\[\Vec{r}(t) = \langle x_0, y_0, z_0 \rangle + t\nabla f(x_0,y_0,z_0)\]
+Given surface $2z^2cos(xy)+\frac{z}{x}+2$ find the normal vector $\Vec{n}$ and the tangent plane at the point $(\frac{1}{3}, \pi, -1)$.
+\[w(x,y,z)=2z^2cos(xy)+\frac{z}{x}+2\]
+\[\nabla w = \langle -2yz^2sin(xy) - \frac{z}{x^2}, -2xz^2sin(xy), 4zcos(xy) + \frac{1}{x} \rangle\]
+\[\Vec{n} = \nabla w(\frac{1}{3}, \pi, -1) = \langle -\sqrt{3}\pi+9, -\frac{\sqrt{3}}{3}, 1 \rangle\]
+\[T = \langle -\sqrt{3}\pi+9, -\frac{\sqrt{3}}{3}, 1 \rangle\ \cdot \langle x-\frac{1}{3}, y-\pi, z+1 \rangle = (9-\sqrt{3}\pi)x+\frac{2\pi -y}{\sqrt{3}}+z-2\]
+\[\Vec{r}(t) = \langle \frac{1}{3}, \pi, -1 \rangle + t\langle -\sqrt{3}\pi+9, -\frac{\sqrt{3}}{3}, 1 \rangle \]
+
+\section{Optimization and 2nd Derivative Test}
+Second derivative in the direction $\Vec{u} = \langle u_1, u_2 \rangle$
+\[D^2_{\Vec{u}} f = f_{xx}(u_1+\frac{u_2 f_{xy}}{f_{xx}})^2+\frac{u^2_2}{f_{xx}}(f_{xx}f_{yy}-{f_{xy}}^2)\]
+Find critical points
+\[\nabla f = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle = 0\]
+Second derivative test
+\[D = f_{xx}f_{yy}-{f_{xy}}^2\]
+\centerline{Local minimum if $D > 0$ and $f_{xx} > 0$}
+\centerline{Local maximum if $D > 0$ and $f_{xx} < 0$}
+\centerline{Saddle point if $D < 0$}
+\\
+Optimization given constraints using Lagrange Multipliers
+\[f(x,y) = xye^\frac{-(x^2+y^2)}{2} \quad\quad x^2+y^2\leq4\]
+\[g(x,y) = x^2+y^2\]
+\[\nabla f = \langle ye^{-\frac{(x^2+y^2)}{2}}(1-x^2), xe^{-\frac{(x^2+y^2)}{2}}(1-y^2) \rangle \quad\quad \nabla g = \langle 2x, 2y \rangle\]
+\\
+\[\nabla f = \lambda \nabla g\]
+\[ye^{-\frac{(x^2+y^2)}{2}}(1-x^2) = 2x\lambda\]
+\[xe^{-\frac{(x^2+y^2)}{2}}(1-y^2) = 2y\lambda\]
+\[x^2+y^2=4\]
+\[\frac{y(1-x^2)}{x(1-y^2)} = \frac{x}{y}\]
+\[y^2(1-x^2) = x^2(1-y^2)\]
+\[y^2-x^2y^2 = x^2-x^2y^2\]
+\[y^2=x^2\]
+\[x^2 + x^2 = 4 \to (x,y) = (\pm\sqrt{2}, \pm\sqrt{2})\]
+\[f(\sqrt{2}, \sqrt{2}) = f(-\sqrt{2}, -\sqrt{2}) = 2e^{-2}\]
+\[f(\sqrt{2}, -\sqrt{2}) = f(-\sqrt{2}, \sqrt{2}) = -2e^{-2}\]
+\\
+Absolute maximum at $(\sqrt{2}, \sqrt{2})$ and $(-\sqrt{2}, -\sqrt{2})$
+
+Absolute minimum at $(\sqrt{2}, -\sqrt{2})$ and $(-\sqrt{2}, \sqrt{2})$
+
+\end{document}
