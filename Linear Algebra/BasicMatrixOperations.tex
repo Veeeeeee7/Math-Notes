@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{Basic Matrix Operations}
+\author{}
+\date{}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\section{Gaussian Elimination and Reduced Row Echelon Form}
+\begin{enumerate}
+\item Any two rows can be interchanged.
+\item Any row can be multiplied by a nonzero number.
+\item Any number of rows can be added and subtracted from any other row.
+\[
+\begin{bmatrix}
+2 & 1 & -1 \\
+-3 & -1 & 2 \\
+-2 & 1 & 2 \\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+1 & \frac{1}{2} & -\frac{1}{2} \\
+-3 & -1 & 2 \\
+-2 & 1 & 2 \\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+1 & \frac{1}{2} & -\frac{1}{2} \\
+0 & \frac{1}{2} & \frac{1}{2} \\
+-2 & 1 & 2 \\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+1 & \frac{1}{2} & -\frac{1}{2} \\
+0 & \frac{1}{2} & \frac{1}{2} \\
+0 & 2 & 1 \\
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}
+\]
+\item The reduced row echelon form of a matrix is when each row has a leading one.
+\end{enumerate}
+
+\section{Matrix Multiplication}
+\begin{enumerate}
+\item $AB \neq BA$
+\item $A(BC) = (AB)C$
+\item $A(B+C) = AB + AC$
+\item $AI = A$
+
+\end{enumerate}
+
+\section{Inverse of a Matrix}
+To find the inverse of a matrix $A$ solve the augmented matrix $[A|I]$ using Gaussian elimination. If $A$ is invertible, then the reduced row echelon form of $[A|I]$ will be $[I|A^{-1}]$.
+\begin{enumerate}
+\item $A^{-1}A = I$
+\item $AA^{-1} = I$
+\item $(AB)^{-1} = B^{-1}A^{-1}$
+\end{enumerate}
+
+\end{document}

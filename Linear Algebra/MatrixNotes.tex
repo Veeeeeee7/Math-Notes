@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{Basic Matrix Operations}
+\author{}
+\date{}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\section{Consisent and Inconsistent Systems}
+A system of linear equations is consistent if it has at least one solution. It is inconsistent if it has no solutions. A system is consistent if and only if the rank of the coefficient matrix is equal to the rank of the augmented matrix.
+\[
+\begin{bmatrix}
+1 & 2 & 3 & | & 4 \\
+5 & 6 & 7 & | & 8 \\
+9 & 10 & 11 & | & 12 \\
+\end{bmatrix}
+\]
+
+
+\section{Rank and Nullity}
+The ranks of a matrix is the number of leading ones in RREF. \\
+For a $m$ x $n$ matrix $A$:
+\begin{enumerate}
+\item rank($A$) $\leq m$
+\item rank($A$) $\leq n$
+\item rank($A$) $\leq$ min($m$, $n$)
+\item if [$A|b$] is a system of linear equations and rank($A$) = $n$, the system has unique solutions
+\item if rank($A$) = $k < n$, the system has solutions with $n-k$ parameters
+\end{enumerate}
+
+\end{document}
